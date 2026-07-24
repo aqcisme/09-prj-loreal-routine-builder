@@ -1,7 +1,6 @@
 /* ---------- Configuration ---------- */
 
-const WORKER_URL =
-  "https://autumn-mountain-34e8.matthewlass.workers.dev/";
+const WORKER_URL = "https://autumn-mountain-34e8.matthewlass.workers.dev/";
 
 const STORAGE_KEY = "loreal-selected-products";
 
@@ -22,19 +21,20 @@ Safety:
 - Do not guarantee results.
 - Do not invent product claims, ingredients, prices, shades, or availability.
 
+Formatting:
+- Return plain text only.
+- Do not use Markdown symbols such as #, **, *, or backticks.
+- Use short headings, numbered steps, and blank lines for readability.
+
 Keep responses friendly, organized, useful, and reasonably concise.`;
 
 /* ---------- DOM references ---------- */
 
 const categoryFilter = document.getElementById("categoryFilter");
 const productsContainer = document.getElementById("productsContainer");
-const selectedProductsList = document.getElementById(
-  "selectedProductsList",
-);
-const clearSelectionsButton =
-  document.getElementById("clearSelections");
-const generateRoutineButton =
-  document.getElementById("generateRoutine");
+const selectedProductsList = document.getElementById("selectedProductsList");
+const clearSelectionsButton = document.getElementById("clearSelections");
+const generateRoutineButton = document.getElementById("generateRoutine");
 const chatForm = document.getElementById("chatForm");
 const chatWindow = document.getElementById("chatWindow");
 const userInput = document.getElementById("userInput");
@@ -255,14 +255,11 @@ function refreshCurrentCategory() {
 /* ---------- Product descriptions ---------- */
 
 function toggleProductDescription(productId, button) {
-  const description = document.getElementById(
-    `description-${productId}`,
-  );
+  const description = document.getElementById(`description-${productId}`);
 
   if (!description) return;
 
-  const isExpanded =
-    button.getAttribute("aria-expanded") === "true";
+  const isExpanded = button.getAttribute("aria-expanded") === "true";
 
   button.setAttribute("aria-expanded", String(!isExpanded));
   description.hidden = isExpanded;
@@ -271,9 +268,7 @@ function toggleProductDescription(productId, button) {
   const icon = button.querySelector("i");
 
   if (label) {
-    label.textContent = isExpanded
-      ? "View description"
-      : "Hide description";
+    label.textContent = isExpanded ? "View description" : "Hide description";
   }
 
   if (icon) {
@@ -285,14 +280,9 @@ function toggleProductDescription(productId, button) {
 /* ---------- localStorage ---------- */
 
 function saveSelectedProducts() {
-  const selectedIds = selectedProducts.map(
-    (product) => product.id,
-  );
+  const selectedIds = selectedProducts.map((product) => product.id);
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(selectedIds),
-  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedIds));
 }
 
 function restoreSelectedProducts() {
@@ -419,8 +409,7 @@ ${JSON.stringify(selectedProductData, null, 2)}`;
     setChatEnabled(true);
     userInput.focus();
   } catch (error) {
-    typingMessage.textContent =
-      `Sorry, I couldn’t generate the routine. ${error.message}`;
+    typingMessage.textContent = `Sorry, I couldn’t generate the routine. ${error.message}`;
     typingMessage.classList.remove("typing");
     typingMessage.classList.add("error");
 
@@ -459,10 +448,7 @@ async function submitFollowUp(event) {
   userInput.value = "";
   setChatLoading(true);
 
-  const typingMessage = appendMessage(
-    "assistant",
-    "Thinking…",
-  );
+  const typingMessage = appendMessage("assistant", "Thinking…");
   typingMessage.classList.add("typing");
 
   try {
@@ -478,8 +464,7 @@ async function submitFollowUp(event) {
 
     trimConversationHistory();
   } catch (error) {
-    typingMessage.textContent =
-      `Sorry, I couldn’t answer that. ${error.message}`;
+    typingMessage.textContent = `Sorry, I couldn’t answer that. ${error.message}`;
     typingMessage.classList.remove("typing");
     typingMessage.classList.add("error");
 
@@ -525,11 +510,9 @@ function setChatLoading(loading) {
 }
 
 function setPageLoading(loading) {
-  generateRoutineButton.disabled =
-    loading || selectedProducts.length === 0;
+  generateRoutineButton.disabled = loading || selectedProducts.length === 0;
 
-  clearSelectionsButton.disabled =
-    loading || selectedProducts.length === 0;
+  clearSelectionsButton.disabled = loading || selectedProducts.length === 0;
 
   categoryFilter.disabled = loading;
 
@@ -557,9 +540,7 @@ function trimConversationHistory() {
 
   conversationHistory = [
     systemMessage,
-    ...recentMessages.filter(
-      (message) => message !== systemMessage,
-    ),
+    ...recentMessages.filter((message) => message !== systemMessage),
   ];
 }
 
@@ -576,19 +557,12 @@ categoryFilter.addEventListener("change", (event) => {
 });
 
 productsContainer.addEventListener("click", (event) => {
-  const descriptionButton = event.target.closest(
-    ".description-toggle",
-  );
+  const descriptionButton = event.target.closest(".description-toggle");
 
   if (descriptionButton) {
-    const productId = Number(
-      descriptionButton.dataset.descriptionId,
-    );
+    const productId = Number(descriptionButton.dataset.descriptionId);
 
-    toggleProductDescription(
-      productId,
-      descriptionButton,
-    );
+    toggleProductDescription(productId, descriptionButton);
 
     return;
   }
@@ -650,10 +624,7 @@ clearSelectionsButton.addEventListener("click", () => {
   setChatEnabled(false);
 });
 
-generateRoutineButton.addEventListener(
-  "click",
-  generateRoutine,
-);
+generateRoutineButton.addEventListener("click", generateRoutine);
 
 chatForm.addEventListener("submit", submitFollowUp);
 
