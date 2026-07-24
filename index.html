@@ -3,81 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <!-- Header / Branding -->
       <header class="site-header">
-        <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <img
+          src="img/loreal-logo.png"
+          alt="L'Oréal"
+          class="logo"
+        />
+
+        <h1 class="site-title">
+          Smart Routine &amp; Product Advisor
+        </h1>
       </header>
 
-      <!-- Category Filter -->
-      <div class="search-section">
-        <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
-          <option value="cleanser">Cleansers</option>
-          <option value="moisturizer">Moisturizers & Treatments</option>
-          <option value="haircare">Haircare</option>
-          <option value="makeup">Makeup</option>
-          <option value="hair color">Hair Color</option>
-          <option value="hair styling">Hair Styling</option>
-          <option value="men's grooming">Men's Grooming</option>
-          <option value="suncare">Suncare</option>
-          <option value="fragrance">Fragrance</option>
-        </select>
-      </div>
+      <main>
+        <!-- Category Filter -->
+        <section class="search-section" aria-labelledby="categoryHeading">
+          <h2 id="categoryHeading" class="visually-hidden">
+            Browse products by category
+          </h2>
 
-      <!-- Products Grid -->
-      <div id="productsContainer" class="products-grid"></div>
+          <label for="categoryFilter" class="visually-hidden">
+            Choose a product category
+          </label>
 
-      <!-- Selected Products -->
-      <div class="selected-products">
-        <h2>Selected Products</h2>
-        <div id="selectedProductsList"></div>
-        <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
-        </button>
-      </div>
+          <select id="categoryFilter">
+            <option value="" disabled selected>
+              Choose a Category
+            </option>
 
-      <!------- Chat Area ------->
-      <section class="chatbox">
-        <h2>Let's Build Your Routine</h2>
-        <div id="chatWindow" class="chat-window"></div>
+            <option value="cleanser">Cleansers</option>
+            <option value="moisturizer">
+              Moisturizers &amp; Treatments
+            </option>
+            <option value="skincare">Skincare</option>
+            <option value="haircare">Haircare</option>
+            <option value="makeup">Makeup</option>
+            <option value="hair color">Hair Color</option>
+            <option value="hair styling">Hair Styling</option>
+            <option value="men's grooming">Men's Grooming</option>
+            <option value="suncare">Suncare</option>
+            <option value="fragrance">Fragrance</option>
+          </select>
+        </section>
 
-        <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
-          <input
-            id="userInput"
-            name="userInput"
-            type="text"
-            placeholder="Ask me about products or routines…"
-            autocomplete="off"
-            required
-          />
-          <button type="submit" id="sendBtn">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span class="visually-hidden">Send</span>
+        <!-- Products Grid -->
+        <section aria-labelledby="productsHeading">
+          <h2 id="productsHeading" class="visually-hidden">
+            Available products
+          </h2>
+
+          <div
+            id="productsContainer"
+            class="products-grid"
+            aria-live="polite"
+          ></div>
+        </section>
+
+        <!-- Selected Products -->
+        <section
+          class="selected-products"
+          aria-labelledby="selectedProductsHeading"
+        >
+          <h2 id="selectedProductsHeading">
+            Selected Products
+          </h2>
+
+          <div
+            id="selectedProductsList"
+            aria-live="polite"
+          ></div>
+
+          <button
+            id="clearSelections"
+            class="clear-btn"
+            type="button"
+          >
+            <i
+              class="fa-solid fa-trash-can"
+              aria-hidden="true"
+            ></i>
+            Clear All Selections
           </button>
-        </form>
-      </section>
 
-      <!------- Footer Links ------->
+          <button
+            id="generateRoutine"
+            class="generate-btn"
+            type="button"
+          >
+            <i
+              class="fa-solid fa-wand-magic-sparkles"
+              aria-hidden="true"
+            ></i>
+            Generate Routine
+          </button>
+        </section>
+
+        <!-- Chat Area -->
+        <section
+          class="chatbox"
+          aria-labelledby="chatHeading"
+        >
+          <h2 id="chatHeading">
+            Let's Build Your Routine
+          </h2>
+
+          <div
+            id="chatWindow"
+            class="chat-window"
+            aria-live="polite"
+            aria-label="Routine and chat messages"
+          ></div>
+
+          <form id="chatForm" class="chat-form">
+            <label for="userInput" class="visually-hidden">
+              Ask a follow-up question
+            </label>
+
+            <input
+              id="userInput"
+              name="userInput"
+              type="text"
+              placeholder="Ask me about products or routines…"
+              autocomplete="off"
+              required
+            />
+
+            <button
+              type="submit"
+              id="sendBtn"
+              aria-label="Send message"
+            >
+              <i
+                class="fa-solid fa-paper-plane"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <!-- Footer -->
       <footer class="site-footer">
-        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
+        <p>
+          Student demonstration project. Not an official L'Oréal website.
+        </p>
+
+        <nav aria-label="Footer navigation">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
