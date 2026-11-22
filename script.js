@@ -1,6 +1,6 @@
 /* ---------- Configuration ---------- */
 
-const WORKER_URL = "https://autumn-mountain-34e8.matthewlass.workers.dev/";
+const WORKER_URL = "https://summer-star-a341.ac7248a.workers.dev/";
 
 const STORAGE_KEY = "loreal-selected-products";
 
