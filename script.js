@@ -71,7 +71,27 @@ renderSelectedProducts();
 
 /* ---------- Product loading ---------- */
 
-async function loadProducts() {
+renderSelectedProducts();
+
+    // Show skincare products automatically on page load
+    categoryFilter.value = "skincare";
+
+    const initialProducts = allProducts.filter(
+      (product) => product.category === "skincare"
+    );
+
+    displayProducts(initialProducts);
+
+  } catch (error) {
+    console.error("Product loading error:", error);
+
+    productsContainer.innerHTML = `
+      <div class="placeholder-message">
+        Sorry, the products could not be loaded.
+      </div>
+    `;
+  }
+}
   try {
     const response = await fetch("products.json");
 
