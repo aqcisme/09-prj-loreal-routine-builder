@@ -654,3 +654,240 @@ button {
     animation: none !important;
   }
 }
+
+/* ==========================================
+   L'OREAL BEAUTY STUDIO - DESIGN ENHANCEMENTS
+   ========================================== */
+
+:root {
+  --light-background: #faf8f5;
+  --light-border: #e8e1da;
+  --soft-gold: rgba(227, 165, 53, 0.16);
+}
+
+/* Overall page */
+body {
+  background: #faf8f5;
+  color: #292522;
+}
+
+.page-wrapper {
+  width: 92%;
+  max-width: 1180px;
+}
+
+/* Editorial header */
+.site-header {
+  padding-top: 55px;
+  padding-bottom: 25px;
+}
+
+.site-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  color: #292522;
+}
+
+/* Category dropdown */
+.search-section {
+  margin: 25px 0 35px;
+}
+
+.search-section select {
+  border: 1px solid #d8cfc5;
+  border-radius: 12px;
+  background: #fff;
+  padding: 17px 20px;
+  font-size: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Product catalog */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px;
+  margin: 30px 0 45px;
+}
+
+.product-card {
+  min-height: 190px;
+  padding: 20px;
+  gap: 16px;
+  border: 1px solid #e9e2da;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(40, 30, 20, 0.035);
+}
+
+.product-card:hover {
+  border-color: var(--loreal-gold);
+  box-shadow: 0 10px 25px rgba(40, 30, 20, 0.09);
+  transform: translateY(-3px);
+}
+
+.product-card.selected {
+  border: 2px solid var(--loreal-red);
+  background: #fffafb;
+  box-shadow: 0 5px 18px rgba(255, 0, 59, 0.09);
+}
+
+.product-card img {
+  width: 115px;
+  height: 125px;
+}
+
+.product-card h3 {
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #77706a;
+}
+
+.selection-label {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Product descriptions */
+.description-toggle {
+  padding: 12px 0 5px;
+  border-top-color: #eee7df;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.product-description p {
+  line-height: 1.7;
+  color: #5f5750;
+}
+
+/* Selected products panel */
+.selected-products {
+  margin: 45px 0;
+  padding: 28px;
+  border: 1px solid #e3c994;
+  border-radius: 16px;
+  background: #fffdf9;
+  box-shadow: 0 5px 18px rgba(40, 30, 20, 0.035);
+}
+
+.selected-products h2,
+.chatbox h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.selected-product-item {
+  padding: 13px 15px;
+  border-left: 3px solid var(--loreal-gold);
+  border-radius: 8px;
+  background: #f7f3ed;
+}
+
+.selected-product-item strong {
+  font-size: 13px;
+}
+
+/* Clear selections */
+.clear-btn {
+  border-radius: 9px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* Generate routine */
+.generate-btn {
+  padding: 18px;
+  border-radius: 10px;
+  background: var(--loreal-red);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  box-shadow: 0 5px 14px rgba(255, 0, 59, 0.15);
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: #d90032;
+  box-shadow: 0 8px 20px rgba(255, 0, 59, 0.2);
+}
+
+/* Chat area */
+.chatbox {
+  margin: 45px 0;
+  padding: 30px;
+  border: 1px solid #e8e1da;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(40, 30, 20, 0.04);
+}
+
+.chat-window {
+  border: 1px solid #eee8e1;
+  border-radius: 12px;
+  background: #faf8f5;
+  font-size: 15px;
+}
+
+.message-bubble {
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.message-row.user .message-bubble {
+  border-color: var(--loreal-red);
+  background: var(--loreal-red);
+}
+
+/* Chat input */
+.chat-form input {
+  border-bottom-color: #e2d9d0;
+  font-size: 15px;
+}
+
+.chat-form button {
+  border-radius: 9px;
+  background: var(--loreal-red);
+}
+
+/* Footer */
+.site-footer {
+  padding-top: 25px;
+  border-top: 1px solid #e9e2da;
+  color: #80776f;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .page-wrapper {
+    width: 94%;
+  }
+
+  .site-title {
+    font-size: 24px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    padding: 16px;
+  }
+
+  .selected-products,
+  .chatbox {
+    padding: 20px;
+    border-radius: 12px;
+  }
+}
